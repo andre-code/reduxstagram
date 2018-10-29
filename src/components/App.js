@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { Link, BrowserRouter } from 'react-router-dom'; 
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'; 
+import * as actionCreators from '../actions/actionCreators';
+import Main from './Main';
 
-import '../styles/App.css';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>
-            <Link to='/'> InstaQuotes </Link>
-        </h1>      
-      </div>
-    );
+function mapStateToProps(state) {
+  return {
+    posts: state.posts,
+    comments: state.comments
   }
 }
 
+function mapDispachToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+
+const App = connect(mapStateToProps, mapDispachToProps)(Main);
 
 export default App;

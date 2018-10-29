@@ -17,7 +17,7 @@ export function addComment( postiD, author, comment ) {
 }
 
 //remove comment
-export function increment( postiD, id ) {
+export function removeComment( postiD, id ) {
   return {
     type: 'REMOVE_COMMENT',
     postiD,
